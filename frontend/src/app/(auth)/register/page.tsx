@@ -4,10 +4,11 @@ import { RegisterForm } from "@/features/auth/components/RegisterForm";
 export default function RegisterPage() {
   return (
     <AuthLayout
-      title="Create account"
-      subtitle="Join as a student, teacher, or admin."
+      mode="register"
+      title="Join LearnHub"
+      subtitle="Create an account and start in under a minute."
       footerHref="/login"
-      footerLabel="Already registered? Sign in"
+      footerLabel="Already have an account? Sign in"
     >
       <RegisterForm />
     </AuthLayout>

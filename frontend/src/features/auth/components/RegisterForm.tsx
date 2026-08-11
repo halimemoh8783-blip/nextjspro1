@@ -1,9 +1,9 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useState, type FormEvent } from "react";
 import { Button } from "@/shared/components/ui/Button";
 import { Input } from "@/shared/components/ui/Input";
-import type { Role } from "../types/index";
+import type { Role } from "../types";
 import { useRegister } from "../hooks/useRegister";
 
 export function RegisterForm() {
@@ -19,13 +19,14 @@ export function RegisterForm() {
   }
 
   return (
-    <form className="stack" onSubmit={onSubmit}>
+    <form className="auth-form stack" onSubmit={onSubmit}>
       <Input
-        label="Name"
+        label="Full name"
         name="name"
         required
         value={name}
         onChange={(e) => setName(e.target.value)}
+        placeholder="Your name"
       />
       <Input
         label="Email"
@@ -34,6 +35,7 @@ export function RegisterForm() {
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        placeholder="you@example.com"
       />
       <Input
         label="Password"
@@ -43,9 +45,10 @@ export function RegisterForm() {
         required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        placeholder="At least 6 characters"
       />
       <label className="field">
-        <span className="field-label">Role</span>
+        <span className="field-label">I am joining as</span>
         <select
           className="field-input"
           value={role}
@@ -57,8 +60,8 @@ export function RegisterForm() {
         </select>
       </label>
       {error ? <p className="form-error">{error}</p> : null}
-      <Button type="submit" fullWidth disabled={isSubmitting}>
-        {isSubmitting ? "Creating…" : "Create account"}
+      <Button type="submit" fullWidth disabled={isSubmitting} className="auth-submit">
+        {isSubmitting ? "Creating account…" : "Create free account"}
       </Button>
     </form>
   );

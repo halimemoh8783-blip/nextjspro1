@@ -4,10 +4,11 @@ import { LoginForm } from "@/features/auth/components/LoginForm";
 export default function LoginPage() {
   return (
     <AuthLayout
-      title="Sign in"
-      subtitle="Use a demo account or your own credentials."
+      mode="login"
+      title="Welcome back"
+      subtitle="Sign in to open your courses, categories, and dashboard."
       footerHref="/register"
-      footerLabel="Need an account? Register"
+      footerLabel="New here? Create an account"
     >
       <LoginForm />
     </AuthLayout>
